@@ -2,7 +2,7 @@ const jwt=require('jsonwebtoken');
 const {blackList}=require('../blackList.js');
 
 const auth=(req,res,next)=>{
-    const token=req.headers.authorization.split(' ')[1];
+    const token=req.headers.authorization;
     if(token){
         if(blackList.includes(token)){
             res.send({'Message':"Please login again"});
